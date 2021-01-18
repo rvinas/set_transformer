@@ -88,7 +88,7 @@ class PoolingMultiHeadAttention(tf.keras.layers.Layer):
         """
         super(PoolingMultiHeadAttention, self).__init__()
         self.mab = MultiHeadAttentionBlock(d, h, rff)
-        self.seed_vectors = tf.random.normal(shape=(1, k, d))
+        self.seed_vectors = tf.Variable(tf.random.normal(shape=(1, k, d)))
         self.rff_s = rff_s
 
     @tf.function
